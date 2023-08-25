@@ -20,19 +20,18 @@ class Main(QMainWindow):
         self.ui = Ui_Main()
         self.ui.setupUi(self)
 
-        #Create timer
+        #Create session timer
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_timer)
         self.counter = 0
 
-        self.session_length = 25 * 60
+        #Create break timer
+        self.break_timer = QTimer(self)
+        self.break_timer.timeout.connect(self.update_break_timer)
+
+        self.session_length = 1 * 60
         self.break_length = 5 * 60
         self.timer_running = False
-
-        #Setup timer label
-        minutes = self.session_length // 60
-        seconds = self.session_length % 60
-        self.ui.labelTime.setText(f"{minutes:02d}:{seconds:02d}")
 
         self.ui.buttonStart.clicked.connect(self.toggle_timer)
         self.ui.buttonReset.clicked.connect(self.reset_timer)
@@ -40,6 +39,7 @@ class Main(QMainWindow):
         self.ui.buttonPreset30.clicked.connect(lambda: self.set_preset_time(30))
         self.ui.buttonPreset45.clicked.connect(lambda: self.set_preset_time(45))
 
+        self.update_timer_ui()
         self.update_preset_buttons()
 
     def start_timer(self):
@@ -48,9 +48,6 @@ class Main(QMainWindow):
             self.timer_running = True
             self.ui.buttonStart.setText("Pause")
 
-            #Setup progress bar
-            self.ui.progressBar.setMaximum(self.session_length)
-            self.ui.progressBar.setValue(self.session_length)
             self.update_preset_buttons()
 
     def pause_timer(self):
@@ -67,33 +64,54 @@ class Main(QMainWindow):
 
     def reset_timer(self):
         self.session_length = 25 * 60
-        self.ui.labelTime.setText("00:00")
+        self.update_timer_ui()
         self.timer.stop()
+        self.timer_running = False
+        self.update_preset_buttons()
+        self.ui.buttonStart.setText("Start")
 
     def update_timer(self):
         self.session_length -= 1
-        minutes = self.session_length // 60
-        seconds = self.session_length % 60
-        self.ui.labelTime.setText(f"{minutes:02d}:{seconds:02d}")
-        self.ui.progressBar.setValue(self.session_length)
+        self.update_timer_ui()
         if self.session_length == 0:
             self.timer.stop()
             self.counter += 1
             self.ui.labelCounter.setText(f"Counter: {self.counter}")
             self.timer_running = False
+            self.break_timer.start(1000)
 
     def set_preset_time(self, presetTime):
         self.session_length = presetTime * 60
+        self.update_timer_ui()
+
+    def update_preset_buttons(self):
+        self.ui.buttonPreset15.setEnabled(not self.timer_running)
+        self.ui.buttonPreset30.setEnabled(not self.timer_running)
+        self.ui.buttonPreset45.setEnabled(not self.timer_running)
+
+    def update_timer_ui(self):
         minutes = self.session_length // 60
         seconds = self.session_length % 60
         self.ui.labelTime.setText(f"{minutes:02d}:{seconds:02d}")
         self.ui.progressBar.setMaximum(self.session_length)
         self.ui.progressBar.setValue(self.session_length)
 
-    def update_preset_buttons(self):
-        self.ui.buttonPreset15.setEnabled(not self.timer_running)
-        self.ui.buttonPreset30.setEnabled(not self.timer_running)
-        self.ui.buttonPreset45.setEnabled(not self.timer_running)
+    #def start_break_timer(self):
+
+
+    def update_break_timer(self):
+        self.break_length -= 1
+        self.update_timer_ui()
+        if self.break_length == 0:
+            self.break_timer.stop()
+            #Setup new session
+            self.timer_running = False
+            self.session_length = 25 * 60
+            self.update_timer_ui()
+            self.update_preset_buttons()
+            self.ui.buttonStart.setText("Start")
+
+
 
 
 

@@ -34,7 +34,7 @@ class Ui_Main(object):
         self.progressBar = QProgressBar(self.centralwidget)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setGeometry(QRect(100, 220, 251, 20))
-        self.progressBar.setValue(24)
+        self.progressBar.setValue(1)
         self.groupBoxPresets = QGroupBox(self.centralwidget)
         self.groupBoxPresets.setObjectName(u"groupBoxPresets")
         self.groupBoxPresets.setGeometry(QRect(230, 70, 127, 137))
