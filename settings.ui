@@ -1,10 +1,8 @@
-<ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>Form</class>
- <widget class="QWidget" name="Form" >
-  <property name="geometry" >
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,11 +10,56 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QLabel" name="labeCustomSessionl">
+   <property name="geometry">
+    <rect>
+     <x>41</x>
+     <y>31</y>
+     <width>128</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set Custom Session: </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelCustomBreak">
+   <property name="geometry">
+    <rect>
+     <x>41</x>
+     <y>61</y>
+     <width>115</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set Custom Break: </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditCustomSession">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>30</y>
+     <width>125</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditCustomBreak">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>60</y>
+     <width>125</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction></pixmapfunction>
+ <resources/>
  <connections/>
 </ui>
-

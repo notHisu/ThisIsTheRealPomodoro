@@ -13,6 +13,7 @@ from settings import settings_instance
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py
 #     pyside6-uic settings.ui -o ui_settings.py
+
 from ui_form import Ui_Main
 from ui_settings import Ui_Settings
 
@@ -22,6 +23,7 @@ class Main(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+        self.settings_dialog = SettingsForm(self)
 
         # Create session timer
         self.timer = QTimer(self)
@@ -42,6 +44,7 @@ class Main(QMainWindow):
         self.ui.buttonPreset15.clicked.connect(lambda: self.set_preset_time(15))
         self.ui.buttonPreset30.clicked.connect(lambda: self.set_preset_time(30))
         self.ui.buttonPreset45.clicked.connect(lambda: self.set_preset_time(45))
+        self.ui.buttonSetting.clicked.connect(self.open_settings)
 
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
@@ -130,6 +133,9 @@ class Main(QMainWindow):
             self.update_preset_buttons()
             self.ui.buttonStart.setText("Start")
 
+    def open_settings(self):
+        self.settings_dialog.show()
+
 
 class SettingsForm(QDialog):
     def __init__(self, parent=None):
@@ -138,8 +144,8 @@ class SettingsForm(QDialog):
         self.ui.setupUi(self)
 
     def apply_settings(self):
-        session_length = int(self.ui.lineEditCustomLength.text())
-        break_length = int(self.ui.lineEditCustom.text())
+        session_length = int(self.ui.lineEditCustomSession.text())
+        break_length = int(self.ui.lineEditCustomBreak.text())
 
         settings_instance.set_custom_lengths(session_length, break_length)
         self.close()

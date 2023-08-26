@@ -83,11 +83,11 @@ class Ui_Main(object):
 
         self.buttonSetting = QPushButton(self.centralwidget)
         self.buttonSetting.setObjectName(u"buttonSetting")
-        self.buttonSetting.setGeometry(QRect(390, 0, 80, 24))
+        self.buttonSetting.setGeometry(QRect(370, 0, 100, 32))
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Main)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 478, 21))
+        self.menubar.setGeometry(QRect(0, 0, 478, 37))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         Main.setMenuBar(self.menubar)
@@ -116,7 +116,7 @@ class Ui_Main(object):
         self.labelTime.setText(QCoreApplication.translate("Main", u"00:00", None))
         self.buttonStart.setText(QCoreApplication.translate("Main", u"Start", None))
         self.buttonReset.setText(QCoreApplication.translate("Main", u"Reset", None))
-        self.buttonSetting.setText(QCoreApplication.translate("Main", u"PushButton", None))
+        self.buttonSetting.setText(QCoreApplication.translate("Main", u"Settings", None))
         self.menuFile.setTitle(QCoreApplication.translate("Main", u"File", None))
     # retranslateUi
 
