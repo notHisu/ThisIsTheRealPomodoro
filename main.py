@@ -5,15 +5,16 @@
 # .\env\Scripts\activate
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 from PySide6.QtCore import QTimer
-
+from settings import settings_instance
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
-#     pyside6-uic form.ui -o ui_form.py, or
-#     pyside2-uic form.ui -o ui_form.py
+#     pyside6-uic form.ui -o ui_form.py
+#     pyside6-uic settings.ui -o ui_settings.py
 from ui_form import Ui_Main
+from ui_settings import Ui_Settings
 
 
 class Main(QMainWindow):
@@ -128,6 +129,20 @@ class Main(QMainWindow):
             self.update_timer_ui(self.session_length)
             self.update_preset_buttons()
             self.ui.buttonStart.setText("Start")
+
+
+class SettingsForm(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_Settings()
+        self.ui.setupUi(self)
+
+    def apply_settings(self):
+        session_length = int(self.ui.lineEditCustomLength.text())
+        break_length = int(self.ui.lineEditCustom.text())
+
+        settings_instance.set_custom_lengths(session_length, break_length)
+        self.close()
 
 
 if __name__ == "__main__":
