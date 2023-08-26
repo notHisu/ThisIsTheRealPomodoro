@@ -81,6 +81,9 @@ class Ui_Main(object):
 
         self.verticalLayout_2.addWidget(self.buttonReset)
 
+        self.buttonSetting = QPushButton(self.centralwidget)
+        self.buttonSetting.setObjectName(u"buttonSetting")
+        self.buttonSetting.setGeometry(QRect(390, 0, 80, 24))
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Main)
         self.menubar.setObjectName(u"menubar")
@@ -113,6 +116,7 @@ class Ui_Main(object):
         self.labelTime.setText(QCoreApplication.translate("Main", u"00:00", None))
         self.buttonStart.setText(QCoreApplication.translate("Main", u"Start", None))
         self.buttonReset.setText(QCoreApplication.translate("Main", u"Reset", None))
+        self.buttonSetting.setText(QCoreApplication.translate("Main", u"PushButton", None))
         self.menuFile.setTitle(QCoreApplication.translate("Main", u"File", None))
     # retranslateUi
 
