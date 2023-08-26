@@ -55,28 +55,28 @@ class Ui_Main(object):
 
         self.verticalLayout_3.addWidget(self.buttonPreset45)
 
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(100, 80, 101, 131))
-        self.verticalLayout_2 = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(100, 80, 101, 131))
+        self.verticalLayout_2 = QVBoxLayout(self.layoutWidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.labelCounter = QLabel(self.widget)
+        self.labelCounter = QLabel(self.layoutWidget)
         self.labelCounter.setObjectName(u"labelCounter")
 
         self.verticalLayout_2.addWidget(self.labelCounter)
 
-        self.labelTime = QLabel(self.widget)
+        self.labelTime = QLabel(self.layoutWidget)
         self.labelTime.setObjectName(u"labelTime")
 
         self.verticalLayout_2.addWidget(self.labelTime)
 
-        self.buttonStart = QPushButton(self.widget)
+        self.buttonStart = QPushButton(self.layoutWidget)
         self.buttonStart.setObjectName(u"buttonStart")
 
         self.verticalLayout_2.addWidget(self.buttonStart)
 
-        self.buttonReset = QPushButton(self.widget)
+        self.buttonReset = QPushButton(self.layoutWidget)
         self.buttonReset.setObjectName(u"buttonReset")
 
         self.verticalLayout_2.addWidget(self.buttonReset)
@@ -84,7 +84,7 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Main)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 478, 37))
+        self.menubar.setGeometry(QRect(0, 0, 478, 21))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         Main.setMenuBar(self.menubar)
