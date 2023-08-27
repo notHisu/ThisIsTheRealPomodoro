@@ -133,21 +133,31 @@ class Main(QMainWindow):
             self.update_preset_buttons()
             self.ui.buttonStart.setText("Start")
 
+    def set_custom_length(self, session_length, break_length):
+        self.session_length = session_length
+        self.break_length = break_length
+        self.ui.progressBar.setMaximum(self.session_length)
+        self.update_timer_ui(self.session_length)
+
     def open_settings(self):
         self.settings_dialog.show()
 
 
 class SettingsForm(QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, parent=Main):
         super().__init__(parent)
         self.ui = Ui_Settings()
         self.ui.setupUi(self)
+        self.main_window = parent
+
+        self.ui.buttonApply.clicked.connect(self.apply_settings)
 
     def apply_settings(self):
         session_length = int(self.ui.lineEditCustomSession.text())
         break_length = int(self.ui.lineEditCustomBreak.text())
+        self.main_window.set_custom_length(session_length, break_length)
 
-        settings_instance.set_custom_lengths(session_length, break_length)
+        # settings_instance.set_custom_lengths(session_length, break_length)
         self.close()
 
 

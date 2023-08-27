@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Settings</class>
+ <widget class="QWidget" name="Settings">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -57,6 +57,19 @@
      <width>125</width>
      <height>21</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonApply">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>90</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apply</string>
    </property>
   </widget>
  </widget>
