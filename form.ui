@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>304</width>
+    <width>300</width>
     <height>276</height>
    </rect>
   </property>
@@ -22,9 +22,9 @@
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>261</width>
+      <x>0</x>
+      <y>230</y>
+      <width>301</width>
       <height>20</height>
      </rect>
     </property>
@@ -42,7 +42,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>0</y>
+      <y>10</y>
       <width>261</width>
       <height>195</height>
      </rect>
@@ -118,7 +118,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>304</width>
+     <width>300</width>
      <height>21</height>
     </rect>
    </property>
