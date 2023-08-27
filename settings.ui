@@ -78,7 +78,7 @@
     <string>Apply</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="rdBold">
+  <widget class="QRadioButton" name="radioBold">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -89,6 +89,19 @@
    </property>
    <property name="text">
     <string>Bold</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioItalic">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>170</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Italic</string>
    </property>
   </widget>
  </widget>

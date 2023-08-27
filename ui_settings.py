@@ -42,9 +42,12 @@ class Ui_Settings(object):
         self.buttonApply = QPushButton(Settings)
         self.buttonApply.setObjectName(u"buttonApply")
         self.buttonApply.setGeometry(QRect(180, 90, 100, 32))
-        self.rdBold = QRadioButton(Settings)
-        self.rdBold.setObjectName(u"rdBold")
-        self.rdBold.setGeometry(QRect(40, 150, 71, 20))
+        self.radioBold = QRadioButton(Settings)
+        self.radioBold.setObjectName(u"radioBold")
+        self.radioBold.setGeometry(QRect(40, 150, 71, 20))
+        self.radioItalic = QRadioButton(Settings)
+        self.radioItalic.setObjectName(u"radioItalic")
+        self.radioItalic.setGeometry(QRect(40, 170, 71, 20))
 
         self.retranslateUi(Settings)
 
@@ -56,6 +59,7 @@ class Ui_Settings(object):
         self.labeCustomSessionl.setText(QCoreApplication.translate("Settings", u"Set Custom Session: ", None))
         self.labelCustomBreak.setText(QCoreApplication.translate("Settings", u"Set Custom Break: ", None))
         self.buttonApply.setText(QCoreApplication.translate("Settings", u"Apply", None))
-        self.rdBold.setText(QCoreApplication.translate("Settings", u"Bold", None))
+        self.radioBold.setText(QCoreApplication.translate("Settings", u"Bold", None))
+        self.radioItalic.setText(QCoreApplication.translate("Settings", u"Italic", None))
     # retranslateUi
 
