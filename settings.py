@@ -11,31 +11,39 @@ class SettingsForm(QDialog):
         self.ui.setupUi(self)
         self.main_window = parent
 
-        self.ui.buttonApply.clicked.connect(self.apply_settings)
-        self.ui.radioBold.toggled.connect(self.toggle_bold_text)
-        self.ui.radioItalic.toggled.connect(self.toggle_italic_text)
+        self.ui.buttonPreset15.clicked.connect(lambda: self.set_preset_time(15))
+        self.ui.buttonPreset30.clicked.connect(lambda: self.set_preset_time(30))
+        self.ui.buttonPreset45.clicked.connect(lambda: self.set_preset_time(45))
+        self.ui.lineEditCustomSession.returnPressed.connect(self.set_custom_session)
+        self.ui.lineEditCustomBreak.returnPressed.connect(self.set_custom_break)
+        self.ui.lineEditCustomLongBreak.returnPressed.connect(
+            self.set_custom_long_break
+        )
 
-    def apply_settings(self):
-        session_length = int(self.ui.lineEditCustomSession.text())
-        break_length = int(self.ui.lineEditCustomBreak.text())
-        self.main_window.set_custom_length(session_length, break_length)
-        self.close()
+    def set_custom_session(self):
+        session_length = (
+            0
+            if self.ui.lineEditCustomSession.text() == ""
+            else int(self.ui.lineEditCustomSession.text()) * 60
+        )
+        self.main_window.set_custom_session(session_length)
 
-    def toggle_bold_text(self, toggled):
-        bold_font = QFont()
-        bold_font.setBold(toggled)
-        self.apply_font_to_widgets(self.main_window, bold_font)
+    def set_custom_break(self):
+        break_length = (
+            0
+            if self.ui.lineEditCustomBreak.text() == ""
+            else int(self.ui.lineEditCustomBreak.text()) * 60
+        )
+        self.main_window.set_custom_break(break_length)
 
-    def toggle_italic_text(self, toggled):
-        italic_font = QFont()
-        italic_font.setItalic(toggled)
-        self.apply_font_to_widgets(self.main_window, italic_font)
+    def set_custom_long_break(self):
+        long_break_length = (
+            0
+            if self.ui.lineEditCustomLongBreak.text() == ""
+            else int(self.ui.lineEditCustomLongBreak.text()) * 60
+        )
+        self.main_window.set_custom_long_break(long_break_length)
 
-    def apply_font_to_widgets(self, widget, font):
-        for child in widget.findChildren(QLabel):
-            child.setFont(font)
-        for child in widget.findChildren(QPushButton):
-            child.setFont(font)
-
-        # Apply font to main window as well
-        widget.setFont(font)
+    def set_preset_time(self, presetTime):
+        session_length = presetTime * 60
+        self.main_window.set_custom_session(session_length)
