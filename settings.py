@@ -11,6 +11,8 @@ class SettingsForm(QDialog):
         self.ui.setupUi(self)
         self.main_window = parent
 
+        self.setWindowTitle("Settings")
+        self.ui.checkBoxAutoStopSession.toggled.connect(self.auto_stop_session)
         self.ui.buttonPreset15.clicked.connect(lambda: self.set_preset_time(15))
         self.ui.buttonPreset30.clicked.connect(lambda: self.set_preset_time(30))
         self.ui.buttonPreset45.clicked.connect(lambda: self.set_preset_time(45))
@@ -47,3 +49,6 @@ class SettingsForm(QDialog):
     def set_preset_time(self, presetTime):
         session_length = presetTime * 60
         self.main_window.set_custom_session(session_length)
+
+    def auto_stop_session(self):
+        print("something")
