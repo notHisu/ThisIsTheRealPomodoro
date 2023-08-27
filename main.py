@@ -5,9 +5,9 @@
 # .\env\Scripts\activate
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QTimer
-from settings import settings_instance
+
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -15,7 +15,6 @@ from settings import settings_instance
 #     pyside6-uic settings.ui -o ui_settings.py
 
 from ui_form import Ui_Main
-from ui_settings import Ui_Settings
 
 
 class Main(QMainWindow):
@@ -23,7 +22,7 @@ class Main(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        self.settings_dialog = SettingsForm(self)
+        self.settings_dialog = self.init_settings_form()
 
         # Create session timer
         self.timer = QTimer(self)
@@ -84,6 +83,7 @@ class Main(QMainWindow):
 
         self.update_preset_buttons()
         self.ui.buttonStart.setText("Start")
+        self.ui.buttonStart.setEnabled(True)
 
     def update_timer(self):
         self.session_length -= 1
@@ -133,32 +133,19 @@ class Main(QMainWindow):
             self.update_preset_buttons()
             self.ui.buttonStart.setText("Start")
 
+    def open_settings(self):
+        self.settings_dialog.show()
+
     def set_custom_length(self, session_length, break_length):
         self.session_length = session_length
         self.break_length = break_length
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
 
-    def open_settings(self):
-        self.settings_dialog.show()
+    def init_settings_form(self):
+        from settings import SettingsForm
 
-
-class SettingsForm(QDialog):
-    def __init__(self, parent=Main):
-        super().__init__(parent)
-        self.ui = Ui_Settings()
-        self.ui.setupUi(self)
-        self.main_window = parent
-
-        self.ui.buttonApply.clicked.connect(self.apply_settings)
-
-    def apply_settings(self):
-        session_length = int(self.ui.lineEditCustomSession.text())
-        break_length = int(self.ui.lineEditCustomBreak.text())
-        self.main_window.set_custom_length(session_length, break_length)
-
-        # settings_instance.set_custom_lengths(session_length, break_length)
-        self.close()
+        return SettingsForm(self)
 
 
 if __name__ == "__main__":

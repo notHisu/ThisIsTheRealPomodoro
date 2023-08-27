@@ -1,14 +1,19 @@
 # settings.py
+from PySide6.QtWidgets import QDialog
+from ui_settings import Ui_Settings
 
 
-class Settings:
-    def __init__(self):
-        self.session_length = 25 * 60
-        self.break_length = 5 * 60
+class SettingsForm(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_Settings()
+        self.ui.setupUi(self)
+        self.main_window = parent
 
-    def set_custom_lengths(self, session_length, break_length):
-        self.session_length = session_length
-        self.break_length = break_length
+        self.ui.buttonApply.clicked.connect(self.apply_settings)
 
-
-settings_instance = Settings()
+    def apply_settings(self):
+        session_length = int(self.ui.lineEditCustomSession.text())
+        break_length = int(self.ui.lineEditCustomBreak.text())
+        self.main_window.set_custom_length(session_length, break_length)
+        self.close()

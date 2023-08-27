@@ -16,13 +16,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QWidget)
+    QRadioButton, QSizePolicy, QWidget)
 
 class Ui_Settings(object):
     def setupUi(self, Settings):
         if not Settings.objectName():
             Settings.setObjectName(u"Settings")
         Settings.resize(400, 300)
+        font = QFont()
+        font.setBold(False)
+        font.setItalic(False)
+        Settings.setFont(font)
         self.labeCustomSessionl = QLabel(Settings)
         self.labeCustomSessionl.setObjectName(u"labeCustomSessionl")
         self.labeCustomSessionl.setGeometry(QRect(41, 31, 128, 16))
@@ -38,6 +42,9 @@ class Ui_Settings(object):
         self.buttonApply = QPushButton(Settings)
         self.buttonApply.setObjectName(u"buttonApply")
         self.buttonApply.setGeometry(QRect(180, 90, 100, 32))
+        self.rdBold = QRadioButton(Settings)
+        self.rdBold.setObjectName(u"rdBold")
+        self.rdBold.setGeometry(QRect(40, 150, 71, 20))
 
         self.retranslateUi(Settings)
 
@@ -49,5 +56,6 @@ class Ui_Settings(object):
         self.labeCustomSessionl.setText(QCoreApplication.translate("Settings", u"Set Custom Session: ", None))
         self.labelCustomBreak.setText(QCoreApplication.translate("Settings", u"Set Custom Break: ", None))
         self.buttonApply.setText(QCoreApplication.translate("Settings", u"Apply", None))
+        self.rdBold.setText(QCoreApplication.translate("Settings", u"Bold", None))
     # retranslateUi
 

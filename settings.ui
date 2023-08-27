@@ -10,6 +10,12 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -70,6 +76,19 @@
    </property>
    <property name="text">
     <string>Apply</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rdBold">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>150</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Bold</string>
    </property>
   </widget>
  </widget>
