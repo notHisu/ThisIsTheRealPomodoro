@@ -25,10 +25,15 @@ class Ui_Main(object):
         if not Main.objectName():
             Main.setObjectName(u"Main")
         Main.resize(478, 436)
+        font = QFont()
+        font.setBold(False)
+        Main.setFont(font)
         self.actionQuit = QAction(Main)
         self.actionQuit.setObjectName(u"actionQuit")
         self.actionAbout = QAction(Main)
         self.actionAbout.setObjectName(u"actionAbout")
+        self.actionSettings = QAction(Main)
+        self.actionSettings.setObjectName(u"actionSettings")
         self.centralwidget = QWidget(Main)
         self.centralwidget.setObjectName(u"centralwidget")
         self.progressBar = QProgressBar(self.centralwidget)
@@ -97,6 +102,7 @@ class Ui_Main(object):
 
         self.menubar.addAction(self.menuFile.menuAction())
         self.menuFile.addAction(self.actionAbout)
+        self.menuFile.addAction(self.actionSettings)
         self.menuFile.addAction(self.actionQuit)
 
         self.retranslateUi(Main)
@@ -108,6 +114,7 @@ class Ui_Main(object):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"Main", None))
         self.actionQuit.setText(QCoreApplication.translate("Main", u"Quit", None))
         self.actionAbout.setText(QCoreApplication.translate("Main", u"About", None))
+        self.actionSettings.setText(QCoreApplication.translate("Main", u"Settings", None))
         self.groupBoxPresets.setTitle(QCoreApplication.translate("Main", u"Presets", None))
         self.buttonPreset15.setText(QCoreApplication.translate("Main", u"15 minutes", None))
         self.buttonPreset30.setText(QCoreApplication.translate("Main", u"30 minutes", None))

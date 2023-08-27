@@ -10,6 +10,11 @@
     <height>436</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Main</string>
   </property>
@@ -131,6 +136,7 @@
      <string>File</string>
     </property>
     <addaction name="actionAbout"/>
+    <addaction name="actionSettings"/>
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuFile"/>
@@ -144,6 +150,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>
