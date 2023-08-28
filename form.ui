@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>265</width>
+    <width>283</width>
     <height>299</height>
    </rect>
   </property>
@@ -22,16 +22,22 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
       <width>261</width>
       <height>251</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QFrame" name="frame">
-       <widget class="QWidget" name="">
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>60</x>
@@ -39,6 +45,9 @@
           <width>136</width>
           <height>156</height>
          </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
@@ -48,6 +57,9 @@
              <pointsize>40</pointsize>
              <bold>true</bold>
             </font>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
            </property>
            <property name="text">
             <string>00:00</string>
@@ -59,6 +71,9 @@
          </item>
          <item>
           <widget class="QLabel" name="labelCounter">
+           <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
+           </property>
            <property name="text">
             <string>Counter: 0</string>
            </property>
@@ -66,6 +81,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonStart">
+           <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
+           </property>
            <property name="styleSheet">
             <string notr="true"/>
            </property>
@@ -76,6 +94,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonReset">
+           <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
+           </property>
            <property name="styleSheet">
             <string notr="true"/>
            </property>
@@ -90,6 +111,9 @@
      </item>
      <item>
       <widget class="QProgressBar" name="progressBar">
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
        <property name="value">
         <number>1</number>
        </property>
@@ -109,7 +133,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>265</width>
+     <width>283</width>
      <height>21</height>
     </rect>
    </property>

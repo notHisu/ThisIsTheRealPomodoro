@@ -22,20 +22,23 @@ class Ui_Calendar(object):
     def setupUi(self, Calendar):
         if not Calendar.objectName():
             Calendar.setObjectName(u"Calendar")
-        Calendar.resize(296, 401)
+        Calendar.resize(313, 401)
         self.verticalLayoutWidget = QWidget(Calendar)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 291, 401))
+        self.verticalLayoutWidget.setGeometry(QRect(10, 0, 291, 401))
+        self.verticalLayoutWidget.setFocusPolicy(Qt.ClickFocus)
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.calendarWidget = QCalendarWidget(self.verticalLayoutWidget)
         self.calendarWidget.setObjectName(u"calendarWidget")
+        self.calendarWidget.setFocusPolicy(Qt.ClickFocus)
 
         self.verticalLayout.addWidget(self.calendarWidget)
 
         self.listViewTask = QListView(self.verticalLayoutWidget)
         self.listViewTask.setObjectName(u"listViewTask")
+        self.listViewTask.setFocusPolicy(Qt.ClickFocus)
 
         self.verticalLayout.addWidget(self.listViewTask)
 
