@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>300</height>
+    <width>308</width>
+    <height>471</height>
    </rect>
   </property>
   <property name="font">
@@ -19,223 +19,217 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBoxPresets">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>0</y>
-     <width>104</width>
-     <height>127</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Presets</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QPushButton" name="buttonPreset15">
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="text">
-       <string>15 minutes</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="buttonPreset30">
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="text">
-       <string>30 minutes</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="buttonPreset45">
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="text">
-       <string>45 minutes</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="groupBoxSetTimer">
-   <property name="geometry">
-    <rect>
-     <x>11</x>
-     <y>1</y>
-     <width>291</width>
-     <height>127</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Set timer</string>
-   </property>
-   <widget class="QLineEdit" name="lineEditCustomSession">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>30</y>
-      <width>125</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labeCustomSessionl">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>31</y>
-      <width>128</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Session time (min)</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditCustomBreak">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>60</y>
-      <width>125</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelCustomBreak">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>61</y>
-      <width>115</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Break time (min)</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelLongBreak">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Long break time (min)</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditCustomLongBreak">
-    <property name="geometry">
-     <rect>
-      <x>139</x>
-      <y>89</y>
-      <width>125</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBoxSettings">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>130</y>
-     <width>401</width>
-     <height>151</height>
+     <y>0</y>
+     <width>291</width>
+     <height>461</height>
     </rect>
    </property>
-   <property name="title">
-    <string>Settings</string>
-   </property>
-   <widget class="QCheckBox" name="checkBoxAutoStopSession">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>181</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string>Auto stop session after break</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxAutoStopBreak">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>181</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string>Auto stop break after session</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxSkipBreak">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>211</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="text">
-     <string>Skip break if you press stop button</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QFrame" name="frameSetTimer">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <widget class="QLineEdit" name="lineEditCustomSession">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>30</y>
+         <width>125</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labeCustomSessionl">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>31</y>
+         <width>128</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Session time (min)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditCustomBreak">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>60</y>
+         <width>125</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelCustomBreak">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>61</y>
+         <width>115</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Break time (min)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelLongBreak">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Long break time (min)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditCustomLongBreak">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>89</y>
+         <width>125</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="framePresets">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QPushButton" name="buttonPreset15">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>15 minutes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonPreset30">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>30 minutes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonPreset45">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string>45 minutes</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frameSettings">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <widget class="QCheckBox" name="checkBoxAutoStopSession">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Auto stop session after break</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxAutoStopBreak">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Auto stop break after session</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxSkipBreak">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>211</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Skip break if you press stop button</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -13,6 +13,8 @@ from PySide6.QtCore import QTimer, QCoreApplication
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py
 #     pyside6-uic settings.ui -o ui_settings.py
+#     pyside6-uic task_scheduler_view.ui -o ui_task_scheduler_view.py
+#     pyside6-uic calendar.ui -o ui_calendar.py
 
 from ui_form import Ui_Main
 
@@ -25,6 +27,8 @@ class Main(QMainWindow):
         self.ui = Ui_Main()
         self.ui.setupUi(self)
         self.settings_dialog = self.init_settings_form()
+        self.task_view_dialog = self.init_task_view_form()
+        self.calender_dialog = self.init_calendar_form()
 
         # Create session timer
         self.timer = QTimer(self)
@@ -47,6 +51,8 @@ class Main(QMainWindow):
 
         self.ui.actionSettings.triggered.connect(self.open_settings)
         self.ui.actionQuit.triggered.connect(QCoreApplication.quit)
+        self.ui.actionTask.triggered.connect(self.open_task)
+        self.ui.actionCalendar.triggered.connect(self.open_calendar)
 
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
@@ -136,6 +142,12 @@ class Main(QMainWindow):
     def open_settings(self):
         self.settings_dialog.show()
 
+    def open_task(self):
+        self.task_view_dialog.show()
+
+    def open_calendar(self):
+        self.calender_dialog.show()
+
     def set_custom_session(self, session_length):
         self.session_length = session_length
         self.ui.progressBar.setMaximum(self.session_length)
@@ -151,6 +163,16 @@ class Main(QMainWindow):
         from settings import SettingsForm
 
         return SettingsForm(self)
+
+    def init_task_view_form(self):
+        from task_view import TaskViewForm
+
+        return TaskViewForm(self)
+
+    def init_calendar_form(self):
+        from calendar_view import CalendarForm
+
+        return CalendarForm(self)
 
 
 if __name__ == "__main__":

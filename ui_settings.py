@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QLabel,
+from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QVBoxLayout,
     QWidget)
 
@@ -23,38 +23,21 @@ class Ui_Settings(object):
     def setupUi(self, Settings):
         if not Settings.objectName():
             Settings.setObjectName(u"Settings")
-        Settings.resize(425, 300)
+        Settings.resize(308, 471)
         font = QFont()
         font.setBold(False)
         font.setItalic(False)
         Settings.setFont(font)
-        self.groupBoxPresets = QGroupBox(Settings)
-        self.groupBoxPresets.setObjectName(u"groupBoxPresets")
-        self.groupBoxPresets.setGeometry(QRect(310, 0, 104, 127))
-        self.verticalLayout_3 = QVBoxLayout(self.groupBoxPresets)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.buttonPreset15 = QPushButton(self.groupBoxPresets)
-        self.buttonPreset15.setObjectName(u"buttonPreset15")
-        self.buttonPreset15.setFocusPolicy(Qt.NoFocus)
-
-        self.verticalLayout_3.addWidget(self.buttonPreset15)
-
-        self.buttonPreset30 = QPushButton(self.groupBoxPresets)
-        self.buttonPreset30.setObjectName(u"buttonPreset30")
-        self.buttonPreset30.setFocusPolicy(Qt.NoFocus)
-
-        self.verticalLayout_3.addWidget(self.buttonPreset30)
-
-        self.buttonPreset45 = QPushButton(self.groupBoxPresets)
-        self.buttonPreset45.setObjectName(u"buttonPreset45")
-        self.buttonPreset45.setFocusPolicy(Qt.NoFocus)
-
-        self.verticalLayout_3.addWidget(self.buttonPreset45)
-
-        self.groupBoxSetTimer = QGroupBox(Settings)
-        self.groupBoxSetTimer.setObjectName(u"groupBoxSetTimer")
-        self.groupBoxSetTimer.setGeometry(QRect(11, 1, 291, 127))
-        self.lineEditCustomSession = QLineEdit(self.groupBoxSetTimer)
+        self.widget = QWidget(Settings)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(10, 0, 291, 461))
+        self.verticalLayout_2 = QVBoxLayout(self.widget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.frameSetTimer = QFrame(self.widget)
+        self.frameSetTimer.setObjectName(u"frameSetTimer")
+        self.frameSetTimer.setFrameShape(QFrame.Box)
+        self.lineEditCustomSession = QLineEdit(self.frameSetTimer)
         self.lineEditCustomSession.setObjectName(u"lineEditCustomSession")
         self.lineEditCustomSession.setGeometry(QRect(140, 30, 125, 21))
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -63,40 +46,72 @@ class Ui_Settings(object):
         sizePolicy.setHeightForWidth(self.lineEditCustomSession.sizePolicy().hasHeightForWidth())
         self.lineEditCustomSession.setSizePolicy(sizePolicy)
         self.lineEditCustomSession.setFocusPolicy(Qt.ClickFocus)
-        self.labeCustomSessionl = QLabel(self.groupBoxSetTimer)
+        self.labeCustomSessionl = QLabel(self.frameSetTimer)
         self.labeCustomSessionl.setObjectName(u"labeCustomSessionl")
         self.labeCustomSessionl.setGeometry(QRect(11, 31, 128, 16))
-        self.lineEditCustomBreak = QLineEdit(self.groupBoxSetTimer)
+        self.lineEditCustomBreak = QLineEdit(self.frameSetTimer)
         self.lineEditCustomBreak.setObjectName(u"lineEditCustomBreak")
         self.lineEditCustomBreak.setGeometry(QRect(140, 60, 125, 21))
         self.lineEditCustomBreak.setFocusPolicy(Qt.ClickFocus)
-        self.labelCustomBreak = QLabel(self.groupBoxSetTimer)
+        self.labelCustomBreak = QLabel(self.frameSetTimer)
         self.labelCustomBreak.setObjectName(u"labelCustomBreak")
         self.labelCustomBreak.setGeometry(QRect(11, 61, 115, 16))
-        self.labelLongBreak = QLabel(self.groupBoxSetTimer)
+        self.labelLongBreak = QLabel(self.frameSetTimer)
         self.labelLongBreak.setObjectName(u"labelLongBreak")
         self.labelLongBreak.setGeometry(QRect(10, 90, 121, 16))
-        self.lineEditCustomLongBreak = QLineEdit(self.groupBoxSetTimer)
+        self.lineEditCustomLongBreak = QLineEdit(self.frameSetTimer)
         self.lineEditCustomLongBreak.setObjectName(u"lineEditCustomLongBreak")
         self.lineEditCustomLongBreak.setGeometry(QRect(139, 89, 125, 21))
         sizePolicy.setHeightForWidth(self.lineEditCustomLongBreak.sizePolicy().hasHeightForWidth())
         self.lineEditCustomLongBreak.setSizePolicy(sizePolicy)
         self.lineEditCustomLongBreak.setFocusPolicy(Qt.ClickFocus)
-        self.groupBoxSettings = QGroupBox(Settings)
-        self.groupBoxSettings.setObjectName(u"groupBoxSettings")
-        self.groupBoxSettings.setGeometry(QRect(10, 130, 401, 151))
-        self.checkBoxAutoStopSession = QCheckBox(self.groupBoxSettings)
+
+        self.verticalLayout_2.addWidget(self.frameSetTimer)
+
+        self.framePresets = QFrame(self.widget)
+        self.framePresets.setObjectName(u"framePresets")
+        self.framePresets.setFrameShape(QFrame.Box)
+        self.verticalLayout_3 = QVBoxLayout(self.framePresets)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.buttonPreset15 = QPushButton(self.framePresets)
+        self.buttonPreset15.setObjectName(u"buttonPreset15")
+        self.buttonPreset15.setFocusPolicy(Qt.NoFocus)
+
+        self.verticalLayout_3.addWidget(self.buttonPreset15)
+
+        self.buttonPreset30 = QPushButton(self.framePresets)
+        self.buttonPreset30.setObjectName(u"buttonPreset30")
+        self.buttonPreset30.setFocusPolicy(Qt.NoFocus)
+
+        self.verticalLayout_3.addWidget(self.buttonPreset30)
+
+        self.buttonPreset45 = QPushButton(self.framePresets)
+        self.buttonPreset45.setObjectName(u"buttonPreset45")
+        self.buttonPreset45.setFocusPolicy(Qt.NoFocus)
+
+        self.verticalLayout_3.addWidget(self.buttonPreset45)
+
+
+        self.verticalLayout_2.addWidget(self.framePresets)
+
+        self.frameSettings = QFrame(self.widget)
+        self.frameSettings.setObjectName(u"frameSettings")
+        self.frameSettings.setFrameShape(QFrame.Box)
+        self.checkBoxAutoStopSession = QCheckBox(self.frameSettings)
         self.checkBoxAutoStopSession.setObjectName(u"checkBoxAutoStopSession")
         self.checkBoxAutoStopSession.setGeometry(QRect(10, 30, 181, 22))
         self.checkBoxAutoStopSession.setFocusPolicy(Qt.NoFocus)
-        self.checkBoxAutoStopBreak = QCheckBox(self.groupBoxSettings)
+        self.checkBoxAutoStopBreak = QCheckBox(self.frameSettings)
         self.checkBoxAutoStopBreak.setObjectName(u"checkBoxAutoStopBreak")
         self.checkBoxAutoStopBreak.setGeometry(QRect(10, 50, 181, 22))
         self.checkBoxAutoStopBreak.setFocusPolicy(Qt.NoFocus)
-        self.checkBoxSkipBreak = QCheckBox(self.groupBoxSettings)
+        self.checkBoxSkipBreak = QCheckBox(self.frameSettings)
         self.checkBoxSkipBreak.setObjectName(u"checkBoxSkipBreak")
         self.checkBoxSkipBreak.setGeometry(QRect(10, 70, 211, 22))
         self.checkBoxSkipBreak.setFocusPolicy(Qt.NoFocus)
+
+        self.verticalLayout_2.addWidget(self.frameSettings)
+
 
         self.retranslateUi(Settings)
 
@@ -105,18 +120,15 @@ class Ui_Settings(object):
 
     def retranslateUi(self, Settings):
         Settings.setWindowTitle(QCoreApplication.translate("Settings", u"Form", None))
-        self.groupBoxPresets.setTitle(QCoreApplication.translate("Settings", u"Presets", None))
-        self.buttonPreset15.setText(QCoreApplication.translate("Settings", u"15 minutes", None))
-        self.buttonPreset30.setText(QCoreApplication.translate("Settings", u"30 minutes", None))
-        self.buttonPreset45.setText(QCoreApplication.translate("Settings", u"45 minutes", None))
-        self.groupBoxSetTimer.setTitle(QCoreApplication.translate("Settings", u"Set timer", None))
         self.lineEditCustomSession.setText("")
         self.labeCustomSessionl.setText(QCoreApplication.translate("Settings", u"Session time (min)", None))
         self.lineEditCustomBreak.setText("")
         self.labelCustomBreak.setText(QCoreApplication.translate("Settings", u"Break time (min)", None))
         self.labelLongBreak.setText(QCoreApplication.translate("Settings", u"Long break time (min)", None))
         self.lineEditCustomLongBreak.setText("")
-        self.groupBoxSettings.setTitle(QCoreApplication.translate("Settings", u"Settings", None))
+        self.buttonPreset15.setText(QCoreApplication.translate("Settings", u"15 minutes", None))
+        self.buttonPreset30.setText(QCoreApplication.translate("Settings", u"30 minutes", None))
+        self.buttonPreset45.setText(QCoreApplication.translate("Settings", u"45 minutes", None))
         self.checkBoxAutoStopSession.setText(QCoreApplication.translate("Settings", u"Auto stop session after break", None))
         self.checkBoxAutoStopBreak.setText(QCoreApplication.translate("Settings", u"Auto stop break after session", None))
         self.checkBoxSkipBreak.setText(QCoreApplication.translate("Settings", u"Skip break if you press stop button", None))

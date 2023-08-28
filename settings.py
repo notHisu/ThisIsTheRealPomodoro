@@ -1,6 +1,5 @@
 # settings.py
-from PySide6.QtWidgets import QDialog, QLabel, QPushButton
-from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QDialog
 from ui_settings import Ui_Settings
 
 
