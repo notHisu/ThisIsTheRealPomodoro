@@ -2,20 +2,29 @@
 
 # App path for testing
 # "C:\Users\Hisu\AppData\Roaming\Spotify\Spotify.exe"
+# /Applications/Brave Browser.app
+# /Applications/Spotify.app
 
 import subprocess
 import os
+import json
+import requests
+import random
+import textwrap
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QTimer, QCoreApplication
 
 
-# Important:
-# You need to run the following command to generate the ui_form.py file
-#     pyside6-uic form.ui -o ui_form.py
-#     pyside6-uic settings.ui -o ui_settings.py
-#     pyside6-uic task_scheduler_view.ui -o ui_task_scheduler_view.py
-#     pyside6-uic calendar.ui -o ui_calendar.py
+"""
+Important:
+You need to run the following command to generate the ui_form.py file
+    pyside6-uic form.ui -o ui_form.py
+    pyside6-uic settings.ui -o ui_settings.py
+    pyside6-uic task_scheduler_view.ui -o ui_task_scheduler_view.py
+    pyside6-uic calendar.ui -o ui_calendar.py
+    pyside6-uic spotify_player.ui -o ui_spotify.py
+"""
 
 from gui.ui_form import Ui_Main
 
@@ -30,6 +39,7 @@ class Main(QMainWindow):
         self.settings_dialog = self.init_settings_form()
         self.task_view_dialog = self.init_task_view_form()
         self.calender_dialog = self.init_calendar_form()
+        self.spotify_dialog = self.init_spotify_form()
 
         # Create session timer
         self.timer = QTimer(self)
@@ -53,11 +63,13 @@ class Main(QMainWindow):
         # Connect signals and slots
         self.ui.buttonStart.clicked.connect(self.toggle_timer)
         self.ui.buttonReset.clicked.connect(self.reset_timer)
+        self.ui.buttonQuote.clicked.connect(self.fetch_quotes)
 
         self.ui.actionSettings.triggered.connect(self.open_settings)
         self.ui.actionQuit.triggered.connect(QCoreApplication.quit)
         self.ui.actionTask.triggered.connect(self.open_task)
         self.ui.actionCalendar.triggered.connect(self.open_calendar)
+        self.ui.actionSpotify.triggered.connect(self.open_spotify)
 
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
@@ -155,6 +167,9 @@ class Main(QMainWindow):
     def open_calendar(self):
         self.calender_dialog.show()
 
+    def open_spotify(self):
+        self.spotify_dialog.show()
+
     def set_custom_session(self, session_length):
         self.session_length = session_length
         self.ui.progressBar.setMaximum(self.session_length)
@@ -167,7 +182,8 @@ class Main(QMainWindow):
 
     def open_break_app(self):
         try:
-            subprocess.Popen(self.break_app_path)
+            subprocess.run(["open", "-a", self.break_app_path])
+            # subprocess.Popen(self.break_app_path)
             print(f"{self.break_app_path} has been opened")
         except FileNotFoundError:
             print(f"Failed to open{self.break_app_path}. File not found.")
@@ -176,7 +192,8 @@ class Main(QMainWindow):
 
     def close_break_app(self):
         try:
-            subprocess.run(["taskkill", "/F", "/IM", self.break_app_name])
+            subprocess.run(["pkill", "-f", self.break_app_name])
+            # subprocess.run(["taskkill", "/F", "/IM", self.break_app_name])
             print(f"{self.break_app_name} has been closed.")
         except subprocess.CalledProcessError:
             print(f"Failed to close {self.break_app_name}.")
@@ -201,3 +218,27 @@ class Main(QMainWindow):
         from calendar_view import CalendarForm
 
         return CalendarForm(self)
+
+    def init_spotify_form(self):
+        from spotify_player import SpotifyForm
+
+        return SpotifyForm(self)
+
+    def fetch_quotes(self):
+        res = requests.get("https://zenquotes.io/api/quotes")
+        quotes = json.loads(res.text)
+        # print(response)
+        random_quote = random.choice(quotes)
+        quote_text = random_quote["q"]
+        author_text = random_quote["a"]
+
+        wrapped_quote = textwrap.wrap(quote_text, width=50)
+        if len(wrapped_quote) > 1:
+            quotes_part1 = wrapped_quote[0]
+            quote_part2 = wrapped_quote[1]
+        else:
+            quotes_part1 = quote_text
+            quote_part2 = ""
+        labelText = f"{quotes_part1}\n{quote_part2}\n-{author_text}"
+        # print(random_quote["q"], " - ", random_quote["a"])
+        self.ui.labelQuote.setText(labelText)

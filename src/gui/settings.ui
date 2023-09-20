@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>370</width>
-    <height>402</height>
+    <width>401</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -308,6 +308,16 @@
         </property>
         <property name="text">
          <string>Focus mode (for Windows)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBoxFocusModeMac">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="text">
+         <string>Focus mode (for MacOS)</string>
         </property>
        </widget>
       </item>

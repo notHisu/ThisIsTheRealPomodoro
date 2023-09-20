@@ -23,7 +23,7 @@ class Ui_Settings(object):
     def setupUi(self, Settings):
         if not Settings.objectName():
             Settings.setObjectName(u"Settings")
-        Settings.resize(400, 402)
+        Settings.resize(401, 420)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -98,30 +98,6 @@ class Ui_Settings(object):
 
         self.verticalLayout_6.addLayout(self.horizontalLayout_2)
 
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.labelBreakAppPath = QLabel(self.frame)
-        self.labelBreakAppPath.setObjectName(u"labelBreakAppPath")
-        self.labelBreakAppPath.setFocusPolicy(Qt.NoFocus)
-
-        self.horizontalLayout_4.addWidget(self.labelBreakAppPath)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
-
-        self.lineEditBreakAppPath = QLineEdit(self.frame)
-        self.lineEditBreakAppPath.setObjectName(u"lineEditBreakAppPath")
-        sizePolicy1.setHeightForWidth(self.lineEditBreakAppPath.sizePolicy().hasHeightForWidth())
-        self.lineEditBreakAppPath.setSizePolicy(sizePolicy1)
-        self.lineEditBreakAppPath.setMinimumSize(QSize(200, 0))
-        self.lineEditBreakAppPath.setFocusPolicy(Qt.ClickFocus)
-
-        self.horizontalLayout_4.addWidget(self.lineEditBreakAppPath)
-
-
-        self.verticalLayout_6.addLayout(self.horizontalLayout_4)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.labelLongBreak = QLabel(self.frame)
@@ -145,6 +121,30 @@ class Ui_Settings(object):
 
 
         self.verticalLayout_6.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.labelBreakAppPath = QLabel(self.frame)
+        self.labelBreakAppPath.setObjectName(u"labelBreakAppPath")
+        self.labelBreakAppPath.setFocusPolicy(Qt.NoFocus)
+
+        self.horizontalLayout_4.addWidget(self.labelBreakAppPath)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
+
+        self.lineEditBreakAppPath = QLineEdit(self.frame)
+        self.lineEditBreakAppPath.setObjectName(u"lineEditBreakAppPath")
+        sizePolicy1.setHeightForWidth(self.lineEditBreakAppPath.sizePolicy().hasHeightForWidth())
+        self.lineEditBreakAppPath.setSizePolicy(sizePolicy1)
+        self.lineEditBreakAppPath.setMinimumSize(QSize(200, 0))
+        self.lineEditBreakAppPath.setFocusPolicy(Qt.ClickFocus)
+
+        self.horizontalLayout_4.addWidget(self.lineEditBreakAppPath)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_4)
 
 
         self.verticalLayout_3.addWidget(self.frame)
@@ -178,6 +178,12 @@ class Ui_Settings(object):
         self.checkBoxFocusMode.setFocusPolicy(Qt.NoFocus)
 
         self.verticalLayout.addWidget(self.checkBoxFocusMode)
+
+        self.checkBoxFocusModeMac = QCheckBox(self.frame_2)
+        self.checkBoxFocusModeMac.setObjectName(u"checkBoxFocusModeMac")
+        self.checkBoxFocusModeMac.setFocusPolicy(Qt.NoFocus)
+
+        self.verticalLayout.addWidget(self.checkBoxFocusModeMac)
 
 
         self.verticalLayout_3.addWidget(self.frame_2)
@@ -221,14 +227,15 @@ class Ui_Settings(object):
         self.lineEditCustomSession.setText("")
         self.labelCustomBreak.setText(QCoreApplication.translate("Settings", u"Break time (min)", None))
         self.lineEditCustomBreak.setText("")
-        self.labelBreakAppPath.setText(QCoreApplication.translate("Settings", u"Break app path", None))
-        self.lineEditBreakAppPath.setText("")
         self.labelLongBreak.setText(QCoreApplication.translate("Settings", u"Long break time (min)", None))
         self.lineEditCustomLongBreak.setText("")
+        self.labelBreakAppPath.setText(QCoreApplication.translate("Settings", u"Break app path", None))
+        self.lineEditBreakAppPath.setText("")
         self.checkBoxSkipBreak.setText(QCoreApplication.translate("Settings", u"Skip break if you press stop button", None))
         self.checkBoxAutoStopSession.setText(QCoreApplication.translate("Settings", u"Auto stop session after break", None))
         self.checkBoxAutoStopBreak.setText(QCoreApplication.translate("Settings", u"Auto stop break after session", None))
-        self.checkBoxFocusMode.setText(QCoreApplication.translate("Settings", u"Focus mode", None))
+        self.checkBoxFocusMode.setText(QCoreApplication.translate("Settings", u"Focus mode (for Windows)", None))
+        self.checkBoxFocusModeMac.setText(QCoreApplication.translate("Settings", u"Focus mode (for MacOS)", None))
         self.buttonPreset15.setText(QCoreApplication.translate("Settings", u"15 minutes", None))
         self.buttonPreset30.setText(QCoreApplication.translate("Settings", u"30 minutes", None))
         self.buttonPreset45.setText(QCoreApplication.translate("Settings", u"45 minutes", None))

@@ -1,3 +1,6 @@
+import json
+import os
+
 from PySide6.QtWidgets import (
     QPushButton,
     QTableWidget,
@@ -17,6 +20,8 @@ class TaskViewForm(QDialog):
         self.ui = Ui_TaskSchedularView()
         self.ui.setupUi(self)
         self.main_window = parent
+        self.tasks_file = os.path.join("utils", "tasks.json")
+        self.load_tasks()
 
         self.setWindowTitle("Task View")
         self.ui.tableWidgetTask.setColumnWidth(0, self.ui.tableWidgetTask.width())
@@ -83,3 +88,43 @@ class TaskViewForm(QDialog):
 
             self.ui.lineEditName.setText(name)
             self.ui.spinBoxPomodoros.setValue(pomodoros)
+
+    def save_tasks(self):
+        tasks = []
+        for row in range(self.ui.tableWidgetTask.rowCount()):
+            name = self.ui.tableWidgetTask.item(row, 0).text()
+            pomodoros = int(self.ui.tableWidgetTask.item(row, 1).text())
+            task = {"name": name, "pomodoros": pomodoros}
+            tasks.append(task)
+
+        with open(self.tasks_file, "w") as f:
+            json.dump(tasks, f)
+
+    def closeEvent(self, event):
+        try:
+            self.save_tasks()
+            print("Done.")
+        except:
+            print("Can't save!")
+
+    def load_tasks(self):
+        try:
+            with open(self.tasks_file) as f:
+                tasks = json.load(f)
+                # print(tasks)
+                for task in tasks:
+                    name = task["name"]
+                    pomodoros = task["pomodoros"]
+                    # Create items
+                    name_item = QTableWidgetItem(name)
+                    pomodoros_item = QTableWidgetItem(str(pomodoros))
+
+                    # Get row count and insert new row
+                    row = self.ui.tableWidgetTask.rowCount()
+                    self.ui.tableWidgetTask.insertRow(row)
+
+                    # Set row items
+                    self.ui.tableWidgetTask.setItem(row, 0, name_item)
+                    self.ui.tableWidgetTask.setItem(row, 1, pomodoros_item)
+        except:
+            print("File doesn't exist")
