@@ -1,9 +1,10 @@
 # This Python file uses the following encoding: utf-8
 
-# VM Activate
-# source venv/bin/activate
-# .\env\Scripts\activate
-import sys
+# App path for testing
+# "C:\Users\Hisu\AppData\Roaming\Spotify\Spotify.exe"
+
+import subprocess
+import os
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QTimer, QCoreApplication
@@ -16,7 +17,7 @@ from PySide6.QtCore import QTimer, QCoreApplication
 #     pyside6-uic task_scheduler_view.ui -o ui_task_scheduler_view.py
 #     pyside6-uic calendar.ui -o ui_calendar.py
 
-from ui_form import Ui_Main
+from gui.ui_form import Ui_Main
 
 
 class Main(QMainWindow):
@@ -45,6 +46,10 @@ class Main(QMainWindow):
         self.timer_running = False
         self.is_break = False
 
+        # App to open during break
+        self.break_app_path = None
+        self.break_app_name = None
+
         # Connect signals and slots
         self.ui.buttonStart.clicked.connect(self.toggle_timer)
         self.ui.buttonReset.clicked.connect(self.reset_timer)
@@ -63,7 +68,7 @@ class Main(QMainWindow):
         if not self.timer_running:
             self.setWindowTitle("It is working time!")
             self.ui.progressBar.setMaximum(self.session_length)
-            self.timer.start(1000)
+            self.timer.start(100)
             self.timer_running = True
             self.ui.buttonStart.setText("Pause")
 
@@ -91,8 +96,9 @@ class Main(QMainWindow):
         if self.is_break:
             self.setWindowTitle("It is time to relax")
             self.ui.progressBar.setMaximum(self.break_length)
-            self.break_timer.start(1000)
+            self.break_timer.start(100)
             self.ui.buttonStart.setEnabled(False)
+            self.open_break_app()
 
     # Update timers
 
@@ -115,6 +121,7 @@ class Main(QMainWindow):
         if self.break_length == 0:
             self.is_break = False
             self.break_timer.stop()
+            self.close_break_app()
             # Setup new session
             self.timer_running = True
             self.session_length = 25 * 60
@@ -153,6 +160,27 @@ class Main(QMainWindow):
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
 
+    def set_break_app(self, break_app_path):
+        self.break_app_path = break_app_path.replace('"', "")
+        self.break_app_name = os.path.basename(self.break_app_path)
+        print(self.break_app_name)
+
+    def open_break_app(self):
+        try:
+            subprocess.Popen(self.break_app_path)
+            print(f"{self.break_app_path} has been opened")
+        except FileNotFoundError:
+            print(f"Failed to open{self.break_app_path}. File not found.")
+        except Exception as e:
+            print(f"Failed to open {self.break_app_path}. Error: {str(e)}")
+
+    def close_break_app(self):
+        try:
+            subprocess.run(["taskkill", "/F", "/IM", self.break_app_name])
+            print(f"{self.break_app_name} has been closed.")
+        except subprocess.CalledProcessError:
+            print(f"Failed to close {self.break_app_name}.")
+
     def set_custom_break(self, break_length):
         self.break_length = break_length
 
@@ -173,10 +201,3 @@ class Main(QMainWindow):
         from calendar_view import CalendarForm
 
         return CalendarForm(self)
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    widget = Main()
-    widget.show()
-    sys.exit(app.exec())

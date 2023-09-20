@@ -8,7 +8,7 @@ from PySide6.QtWidgets import (
     QMessageBox,
 )
 from PySide6.QtCore import QAbstractTableModel
-from ui_task_scheduler_view import Ui_TaskSchedularView
+from gui.ui_task_scheduler_view import Ui_TaskSchedularView
 
 
 class TaskViewForm(QDialog):
@@ -20,9 +20,6 @@ class TaskViewForm(QDialog):
 
         self.setWindowTitle("Task View")
         self.ui.tableWidgetTask.setColumnWidth(0, self.ui.tableWidgetTask.width())
-        # self.ui.tableWidgetTask.setColumnWidth(
-        #     1, self.ui.tableWidgetTask.width()
-        # )
 
         self.ui.buttonAdd.clicked.connect(self.add_task)
         self.ui.buttonDelete.clicked.connect(self.delete_task)

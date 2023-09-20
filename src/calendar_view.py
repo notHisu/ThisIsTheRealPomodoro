@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QDialog
-from ui_calendar import Ui_Calendar
+from gui.ui_calendar import Ui_Calendar
 
 
 class CalendarForm(QDialog):

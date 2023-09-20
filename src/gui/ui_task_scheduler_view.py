@@ -15,48 +15,24 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLineEdit,
-    QPushButton, QSizePolicy, QSpinBox, QTableWidget,
-    QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
+    QLineEdit, QPushButton, QSizePolicy, QSpinBox,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_TaskSchedularView(object):
     def setupUi(self, TaskSchedularView):
         if not TaskSchedularView.objectName():
             TaskSchedularView.setObjectName(u"TaskSchedularView")
-        TaskSchedularView.resize(393, 314)
-        self.horizontalLayoutWidget = QWidget(TaskSchedularView)
-        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
-        self.horizontalLayoutWidget.setGeometry(QRect(10, 270, 371, 31))
-        self.horizontalLayoutWidget.setFocusPolicy(Qt.ClickFocus)
-        self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.buttonAdd = QPushButton(self.horizontalLayoutWidget)
-        self.buttonAdd.setObjectName(u"buttonAdd")
-        self.buttonAdd.setFocusPolicy(Qt.ClickFocus)
-
-        self.horizontalLayout.addWidget(self.buttonAdd)
-
-        self.buttonEdit = QPushButton(self.horizontalLayoutWidget)
-        self.buttonEdit.setObjectName(u"buttonEdit")
-        self.buttonEdit.setFocusPolicy(Qt.ClickFocus)
-
-        self.horizontalLayout.addWidget(self.buttonEdit)
-
-        self.buttonDelete = QPushButton(self.horizontalLayoutWidget)
-        self.buttonDelete.setObjectName(u"buttonDelete")
-        self.buttonDelete.setFocusPolicy(Qt.ClickFocus)
-
-        self.horizontalLayout.addWidget(self.buttonDelete)
-
-        self.verticalLayoutWidget = QWidget(TaskSchedularView)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 0, 371, 271))
-        self.verticalLayoutWidget.setFocusPolicy(Qt.ClickFocus)
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        TaskSchedularView.resize(338, 305)
+        self.verticalLayout = QVBoxLayout(TaskSchedularView)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.tableWidgetTask = QTableWidget(self.verticalLayoutWidget)
+        self.frame_2 = QFrame(TaskSchedularView)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.NoFrame)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.tableWidgetTask = QTableWidget(self.frame_2)
         if (self.tableWidgetTask.columnCount() < 2):
             self.tableWidgetTask.setColumnCount(2)
         __qtablewidgetitem = QTableWidgetItem()
@@ -71,26 +47,60 @@ class Ui_TaskSchedularView(object):
         self.tableWidgetTask.horizontalHeader().setMinimumSectionSize(30)
         self.tableWidgetTask.horizontalHeader().setDefaultSectionSize(100)
         self.tableWidgetTask.horizontalHeader().setProperty("showSortIndicator", False)
-        self.tableWidgetTask.horizontalHeader().setStretchLastSection(False)
+        self.tableWidgetTask.horizontalHeader().setStretchLastSection(True)
 
-        self.verticalLayout.addWidget(self.tableWidgetTask)
+        self.verticalLayout_2.addWidget(self.tableWidgetTask)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.lineEditName = QLineEdit(self.verticalLayoutWidget)
+
+        self.verticalLayout.addWidget(self.frame_2)
+
+        self.frame = QFrame(TaskSchedularView)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.NoFrame)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.lineEditName = QLineEdit(self.frame)
         self.lineEditName.setObjectName(u"lineEditName")
         self.lineEditName.setFocusPolicy(Qt.ClickFocus)
 
-        self.horizontalLayout_2.addWidget(self.lineEditName)
+        self.horizontalLayout_3.addWidget(self.lineEditName)
 
-        self.spinBoxPomodoros = QSpinBox(self.verticalLayoutWidget)
+        self.spinBoxPomodoros = QSpinBox(self.frame)
         self.spinBoxPomodoros.setObjectName(u"spinBoxPomodoros")
         self.spinBoxPomodoros.setFocusPolicy(Qt.ClickFocus)
 
-        self.horizontalLayout_2.addWidget(self.spinBoxPomodoros)
+        self.horizontalLayout_3.addWidget(self.spinBoxPomodoros)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addWidget(self.frame)
+
+        self.frame_3 = QFrame(TaskSchedularView)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.NoFrame)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.buttonAdd = QPushButton(self.frame_3)
+        self.buttonAdd.setObjectName(u"buttonAdd")
+        self.buttonAdd.setFocusPolicy(Qt.ClickFocus)
+
+        self.horizontalLayout_4.addWidget(self.buttonAdd)
+
+        self.buttonDelete = QPushButton(self.frame_3)
+        self.buttonDelete.setObjectName(u"buttonDelete")
+        self.buttonDelete.setFocusPolicy(Qt.ClickFocus)
+
+        self.horizontalLayout_4.addWidget(self.buttonDelete)
+
+        self.buttonEdit = QPushButton(self.frame_3)
+        self.buttonEdit.setObjectName(u"buttonEdit")
+        self.buttonEdit.setFocusPolicy(Qt.ClickFocus)
+
+        self.horizontalLayout_4.addWidget(self.buttonEdit)
+
+
+        self.verticalLayout.addWidget(self.frame_3)
 
 
         self.retranslateUi(TaskSchedularView)
@@ -100,12 +110,12 @@ class Ui_TaskSchedularView(object):
 
     def retranslateUi(self, TaskSchedularView):
         TaskSchedularView.setWindowTitle(QCoreApplication.translate("TaskSchedularView", u"Task View", None))
-        self.buttonAdd.setText(QCoreApplication.translate("TaskSchedularView", u"Add", None))
-        self.buttonEdit.setText(QCoreApplication.translate("TaskSchedularView", u"Edit", None))
-        self.buttonDelete.setText(QCoreApplication.translate("TaskSchedularView", u"Delete", None))
         ___qtablewidgetitem = self.tableWidgetTask.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("TaskSchedularView", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidgetTask.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("TaskSchedularView", u"Pomodoros", None));
+        self.buttonAdd.setText(QCoreApplication.translate("TaskSchedularView", u"Add", None))
+        self.buttonDelete.setText(QCoreApplication.translate("TaskSchedularView", u"Delete", None))
+        self.buttonEdit.setText(QCoreApplication.translate("TaskSchedularView", u"Edit", None))
     # retranslateUi
 
