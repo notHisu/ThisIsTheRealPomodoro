@@ -29,13 +29,13 @@
     </rect>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
+    <enum>Qt::NoFocus</enum>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QFrame" name="frameSetTimer">
       <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -72,7 +72,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Session time (min)</string>
@@ -104,7 +104,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Break time (min)</string>
@@ -120,7 +120,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Long break time (min)</string>
@@ -153,7 +153,7 @@
     <item>
      <widget class="QFrame" name="framePresets">
       <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -162,7 +162,7 @@
        <item>
         <widget class="QPushButton" name="buttonPreset15">
          <property name="focusPolicy">
-          <enum>Qt::ClickFocus</enum>
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>15 minutes</string>
@@ -172,7 +172,7 @@
        <item>
         <widget class="QPushButton" name="buttonPreset30">
          <property name="focusPolicy">
-          <enum>Qt::ClickFocus</enum>
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>30 minutes</string>
@@ -182,7 +182,7 @@
        <item>
         <widget class="QPushButton" name="buttonPreset45">
          <property name="focusPolicy">
-          <enum>Qt::ClickFocus</enum>
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
           <string>45 minutes</string>
@@ -195,7 +195,7 @@
     <item>
      <widget class="QFrame" name="frameSettings">
       <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -210,7 +210,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Auto stop session after break</string>
@@ -226,7 +226,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Auto stop break after session</string>
@@ -242,7 +242,7 @@
         </rect>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
         <string>Skip break if you press stop button</string>

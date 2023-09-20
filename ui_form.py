@@ -88,6 +88,9 @@ class Ui_Main(object):
 
         self.verticalLayout.addWidget(self.buttonReset)
 
+        self.pushButton = QPushButton(self.frame)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(90, 0, 100, 32))
 
         self.verticalLayout_2.addWidget(self.frame)
 
@@ -103,7 +106,7 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Main)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 283, 21))
+        self.menubar.setGeometry(QRect(0, 0, 283, 24))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         Main.setMenuBar(self.menubar)
@@ -134,6 +137,7 @@ class Ui_Main(object):
         self.labelCounter.setText(QCoreApplication.translate("Main", u"Counter: 0", None))
         self.buttonStart.setText(QCoreApplication.translate("Main", u"Start", None))
         self.buttonReset.setText(QCoreApplication.translate("Main", u"Reset", None))
+        self.pushButton.setText(QCoreApplication.translate("Main", u"PushButton", None))
         self.menuFile.setTitle(QCoreApplication.translate("Main", u"File", None))
     # retranslateUi
 

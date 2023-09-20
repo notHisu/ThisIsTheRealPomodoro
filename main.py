@@ -63,7 +63,7 @@ class Main(QMainWindow):
         if not self.timer_running:
             self.setWindowTitle("It is working time!")
             self.ui.progressBar.setMaximum(self.session_length)
-            self.timer.start(100)
+            self.timer.start(1000)
             self.timer_running = True
             self.ui.buttonStart.setText("Pause")
 

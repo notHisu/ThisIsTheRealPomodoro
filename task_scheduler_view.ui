@@ -19,7 +19,7 @@
      <x>10</x>
      <y>270</y>
      <width>371</width>
-     <height>31</height>
+     <height>32</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -95,7 +95,7 @@
        <bool>false</bool>
       </attribute>
       <attribute name="horizontalHeaderStretchLastSection">
-       <bool>false</bool>
+       <bool>true</bool>
       </attribute>
       <column>
        <property name="text">
