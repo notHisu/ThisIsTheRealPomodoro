@@ -73,6 +73,7 @@ class Main(QMainWindow):
 
         self.ui.progressBar.setMaximum(self.session_length)
         self.update_timer_ui(self.session_length)
+        self.fetch_quotes()
 
     # Timer controls
 
@@ -83,6 +84,7 @@ class Main(QMainWindow):
             self.timer.start(100)
             self.timer_running = True
             self.ui.buttonStart.setText("Pause")
+            self.fetch_quotes()
 
     def pause_timer(self):
         if self.timer_running:
@@ -103,6 +105,7 @@ class Main(QMainWindow):
 
         self.ui.buttonStart.setText("Start")
         self.ui.buttonStart.setEnabled(True)
+        self.fetch_quotes()
 
     def start_break_timer(self):
         if self.is_break:
@@ -111,6 +114,7 @@ class Main(QMainWindow):
             self.break_timer.start(100)
             self.ui.buttonStart.setEnabled(False)
             self.open_break_app()
+            self.fetch_quotes()
 
     # Update timers
 
@@ -124,6 +128,7 @@ class Main(QMainWindow):
             self.timer_running = True
             self.is_break = True
             self.start_break_timer()
+            self.fetch_quotes()
 
     def update_break_timer(self):
         if self.counter % 4 == 0:
